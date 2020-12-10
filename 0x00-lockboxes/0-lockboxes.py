@@ -1,5 +1,8 @@
 #!/usr/bin/python3
 def canUnlockAll(box):
+    """
+    Check if a list is unlocked or not
+    """
     key = [0]
     result = [j for j in range(len(box))]
 
