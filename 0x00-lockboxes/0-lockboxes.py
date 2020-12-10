@@ -12,6 +12,7 @@ def canUnlockAll(box):
                 if x not in key:
                     key.append(x)
     key.sort()
+    key = key[:len(box)]
     if result == key:
         return("True")
     else:
