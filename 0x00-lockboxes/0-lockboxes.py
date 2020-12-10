@@ -13,6 +13,6 @@ def canUnlockAll(box):
                     key.append(x)
     key.sort()
     if result == key:
-        return("true")
+        return("True")
     else:
-        return("false")
+        return("False")
