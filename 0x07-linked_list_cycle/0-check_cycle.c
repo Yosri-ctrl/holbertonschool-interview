@@ -5,19 +5,20 @@
 
 /**
  * check_cycle - check if single list is a cycle.
- *
- * Return: Return 1 if cycle, 1 otherwise. 
+ * @list: list to check
+ * Return: Return 1 if cycle, 0 otherwise. 
  */
 
 int check_cycle(listint_t *list){
 	listint_t *node = list->next;
 
+	if (list->next == NULL || list == NULL)
+		return (0);
 	while (node->next != NULL){
 		if (node == list){
 			return (1);
 		}
 		node = node->next;
 	}
-
 	return (0);
 }
