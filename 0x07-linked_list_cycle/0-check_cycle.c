@@ -10,15 +10,22 @@
  */
 
 int check_cycle(listint_t *list){
-	listint_t *node = list->next;
+	listint_t *node , *curr = list;
 
 	if (list->next == NULL || list == NULL)
 		return (0);
-	while (node->next != NULL){
-		if (node == list){
-			return (1);
+
+	while(curr->next){
+		node = curr->next;
+		while (node->next){
+			if (node == list || node == curr){
+				return (1);
+			}
+
+			node = node->next;
 		}
-		node = node->next;
+		curr = curr->next;
 	}
+
 	return (0);
 }
