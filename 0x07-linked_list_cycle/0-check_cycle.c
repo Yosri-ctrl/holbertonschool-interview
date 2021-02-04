@@ -10,21 +10,18 @@
  */
 
 int check_cycle(listint_t *list){
-	listint_t *node , *curr = list;
+	listint_t *node = list, *curr = list;
 
 	if (list->next == NULL || list == NULL)
 		return (0);
 
-	while(curr->next){
-		node = curr->next;
-		while (node->next){
-			if (node == list || node == curr){
-				return (1);
-			}
-
-			node = node->next;
-		}
+	while(curr && node && node->next){
+		node = node->next->next;
 		curr = curr->next;
+
+		if (node == curr){
+				return (1);
+		}
 	}
 
 	return (0);
