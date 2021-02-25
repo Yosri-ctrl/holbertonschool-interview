@@ -32,10 +32,6 @@ int slide_line(int *line, size_t size, int direction)
             }
         }
     }
-    for (i = 0; i < size; i++)
-        printf("new[%ld] = %d\n", i, new[i]);
-    for (i = 0; i < size; i++)
-        printf("lin[%ld] = %d\n", i, line[i]);
 
     switch (direction)
     {
@@ -59,7 +55,6 @@ int slide_line(int *line, size_t size, int direction)
 
         for (i = size - 1, j = size - 1; i > 0; i--)
         {
-            printf("2:%d\n", new[i]);
             if (new[i] != 0)
             {
                 line[j] = new[i];
