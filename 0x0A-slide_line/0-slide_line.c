@@ -8,29 +8,30 @@
  */
 int slide_line(int *line, size_t size, int direction)
 {
-    int new[size];
-    size_t i, j;
-    for (i = 0; i < size; i++)
-    {
-        if (line[i] != 0)
-            new[i] = line[i];
-        else
-            new[i] = 0;
-    }
-    for (i = 0; i < size; i++)
-    {
-        for (j = i + 1; j < size; j++)
-        {
-            if (new[i] != 0 && new[j] != 0 && new[i] != new[j])
-                break;
-            if (new[i] != 0 && new[i] == new[j])
-            {
-                new[i] += new[i];
-                new[j] = 0;
-                break;
-            }
-        }
-    }
+	int new[size];
+	size_t i, j;
 
-    return (1);
+	for (i = 0; i < size; i++)
+	{
+		if (line[i] != 0)
+			new[i] = line[i];
+		else
+			new[i] = 0;
+	}
+	for (i = 0; i < size; i++)
+	{
+		for (j = i + 1; j < size; j++)
+		{
+			if (new[i] != 0 && new[j] != 0 && new[i] != new[j])
+				break;
+			if (new[i] != 0 && new[i] == new[j])
+			{
+				new[i] += new[i];
+				new[j] = 0;
+				break;
+			}
+		}
+	}
+
+	return (1);
 }
