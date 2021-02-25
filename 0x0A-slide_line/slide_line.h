@@ -1,5 +1,5 @@
-#ifndef SLIDE_LINE
-#define SLIDE_LINE
+#ifndef __SLIDE_LINE__
+#define __SLIDE_LINE__
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -9,4 +9,4 @@
 #define SLIDE_RIGHT 1
 
 int slide_line(int *line, size_t size, int direction);
-#endif
+#endif /* SLIDE_LEFT*/
