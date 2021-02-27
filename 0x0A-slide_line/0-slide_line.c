@@ -1,9 +1,9 @@
 #include "slide_line.h"
 /**
- * slide_line - return the result
+ * slide_line - slide ans merge a list of int
  * @line: the list to treat
  * @size: line's size
- * @direction: Ether L or R
+ * @direction: left or right
  * Return: 1 in success, or 0 when failure.
  **/
 int slide_line(int *line, size_t size, int direction)
@@ -27,6 +27,11 @@ int slide_line(int *line, size_t size, int direction)
 	return (1);
 }
 
+/**
+ * reverse - reverse the list
+ * @line: the list to treat
+ * @size: line's size
+ **/
 void reverse(int *line, size_t size)
 {
 	size_t i, j;
@@ -40,6 +45,11 @@ void reverse(int *line, size_t size)
 	}
 }
 
+/**
+ * addition - add the slots with the same values
+ * @line: the list to treat
+ * @size: line's size
+ **/
 void addition(int *line, size_t size)
 {
 	size_t i, j;
@@ -58,6 +68,11 @@ void addition(int *line, size_t size)
 		}
 }
 
+/**
+ * alignement - push all values to the left
+ * @line: the list to treat
+ * @size: line's size
+ **/
 void alignement(int *line, size_t size)
 {
 	size_t i, j;
