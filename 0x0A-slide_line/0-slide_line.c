@@ -58,7 +58,11 @@ void addition(int *line, size_t size)
 		for (j = i + 1; j < size; j++)
 		{
 			if (line[i] != 0 && line[j] != 0 && line[i] != line[j])
+			{
+				i = j;
 				break;
+			}
+
 			if (line[i] != 0 && line[i] == line[j])
 			{
 				line[i] += line[i];
