@@ -8,61 +8,65 @@
  **/
 int slide_line(int *line, size_t size, int direction)
 {
-	int new[size];
-	size_t i, j;
-
-	for (i = 0; i < size; i++)
-		new[i] = line[i];
-
-	for (i = 0; i < size; i++)
-	{
-		for (j = i + 1; j < size; j++)
-		{
-			if (new[i] != 0 && new[j] != 0 && new[i] != new[j])
-				break;
-			if (new[i] != 0 && new[i] == new[j])
-			{
-				new[i] += new[i];
-				new[j] = 0;
-				break;
-			}
-		}
-	}
-
 	switch (direction)
 	{
 	case 0:
-		for (i = 0, j = 0; i < size; i++)
-			if (new[i] != 0)
-			{
-				line[j] = new[i];
-				j++;
-			}
-		for (; j < size; j++)
-			line[j] = 0;
+		addition(line, size);
+		alignement(line, size);
 		break;
 	case 1:
-		for (j = 0, i = 0; j < size; j++)
-			if (new[j] == 0)
-			{
-				line[i] = 0;
-				i++;
-			}
-
-		for (i = size - 1, j = size - 1; i > 0; i--)
-		{
-			if (new[i] != 0)
-			{
-				line[j] = new[i];
-				j--;
-			};
-		}
-		line[j] = new[i];
-
+		reverse(line, size);
+		addition(line, size);
+		alignement(line, size);
+		reverse(line, size);
 		break;
 	default:
 		return (0);
 		break;
 	}
 	return (1);
+}
+
+void reverse(int *line, size_t size)
+{
+	size_t i, j;
+	int aux;
+
+	for (i = 0, j = size - 1; i < size / 2; i++, j--)
+	{
+		aux = line[i];
+		line[i] = line[j];
+		line[j] = aux;
+	}
+}
+
+void addition(int *line, size_t size)
+{
+	size_t i, j;
+
+	for (i = 0; i < size; i++)
+		for (j = i + 1; j < size; j++)
+		{
+			if (line[i] != 0 && line[j] != 0 && line[i] != line[j])
+				break;
+			if (line[i] != 0 && line[i] == line[j])
+			{
+				line[i] += line[i];
+				line[j] = 0;
+				break;
+			}
+		}
+}
+
+void alignement(int *line, size_t size)
+{
+	size_t i, j;
+	for (i = 0, j = 0; i < size; i++)
+		if (line[i] != 0)
+		{
+			line[j] = line[i];
+			j++;
+		}
+	for (; j < size; j++)
+		line[j] = 0;
 }
