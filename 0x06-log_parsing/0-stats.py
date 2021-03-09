@@ -4,19 +4,25 @@ import sys
 
 code = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 count = 0
-for _ in range(10000):
+n = 0
+
+for line in sys.stdin:
+    if n != 0 and n % 10 == 0:
+        print("File size: {:d}".format(count))
+        for stat, times in code.items():
+            if times != 0:
+                print("{:d}: {:d}".format(stat, times))
+    n += 1
+    data = line.split()
     try:
-        for i in range(10):
-            data = sys.stdin.readline()
-            #print(data)
-            part = data.split()
-            #print(part)
-            count += int(part[-1])
-            code[int(part[-2])] += 1
-    except Exception:
+        stat = int(data[-2])  
+        #print("s={:d}".format(stat))
+        if stat in code:
+            code[stat] += 1
+        count += int(data[-1])
+    except:
         pass
-    finally:
-        print("File size: {}".format(count))
-        for i in code:
-            if code[i] != 0:
-                print("{}: {}".format(i, code[i]))
+print("File size: {:d}".format(count))
+for stat, times in code.items():
+    if times != 0:
+        print("{:d}: {:d}".format(stat, times))
