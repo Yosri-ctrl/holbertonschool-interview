@@ -1,9 +1,9 @@
 #include "sandpiles.h"
 
 /**
-*
-*
-*
+* sandpiles_sum - add two grid and sandpile it
+* @grid1: the first grid
+* @grid2: the second grid to treat
 */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
@@ -14,9 +14,10 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 }
 
 /**
-*
-*
-*
+* check - sum the two grids and check for overflow
+* @grid1: the first grid
+* @grid2: the second grid
+* Return: 1 if there is overflow, 0 otherwise
 */
 int check(int grid1[3][3], int grid2[3][3])
 {
@@ -36,9 +37,9 @@ int check(int grid1[3][3], int grid2[3][3])
 }
 
 /**
-*
-*
-*
+* rumble - stablise the grid
+* @grid1: the first grid
+* @grid2: the second grid
 */
 void rumble(int grid1[3][3], int grid2[3][3])
 {
@@ -57,20 +58,12 @@ void rumble(int grid1[3][3], int grid2[3][3])
 					grid1[i][j] -= 4;
 					if (i - 1 >= 0)
 						grid2[i - 1][j] += 1;
-					else
-						grid2[i - 1][j] += 0;
 					if (i + 1 < 3)
 						grid2[i + 1][j] += 1;
-					else
-						grid2[i + 1][j] += 0;
 					if (j - 1 >= 0)
 						grid2[i][j - 1] += 1;
-					else
-						grid2[i][j - 1] += 0;
 					if (j + 1 < 3)
 						grid2[i][j + 1] += 1;
-					else
-						grid2[i][j + 1] += 0;
 				}
 			}
 		}
@@ -79,8 +72,8 @@ void rumble(int grid1[3][3], int grid2[3][3])
 }
 
 /**
- * 
- * 
+ * _print - print the grid grid
+ * @grid: the grid to be printed
 */
 void _print(int grid[3][3])
 {
