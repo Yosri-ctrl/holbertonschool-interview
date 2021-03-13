@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+"""stats"""
 import sys
 
 if __name__ == "__main__":
-    """_"""
+    """stats"""
     code = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
     count = 0
     n = 0
