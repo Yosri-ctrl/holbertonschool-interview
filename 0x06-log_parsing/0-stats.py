@@ -31,7 +31,8 @@ if __name__ == "__main__":
             if status[code] != 0:
                 print("{}: {}".format(code, status[code]))
         raise
-    print("File size: {}".format(n))
-    for code in sorted(status):
-        if status[code] != 0:
-            print("{}: {}".format(code, status[code]))
+    finally:
+        print("File size: {}".format(n))
+        for code in sorted(status):
+            if status[code] != 0:
+                print("{}: {}".format(code, status[code]))
