@@ -4,9 +4,7 @@ import sys
 
 
 if __name__ == "__main__":
-    
-    status = {"200": 0, "301": 0, "400": 0, "401": 0,
-                    "403": 0, "404": 0, "405": 0, "500": 0}
+    status = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0, "404": 0, "405": 0, "500": 0}
     count = 0
     n = 0
 
@@ -25,7 +23,8 @@ if __name__ == "__main__":
                         print("{}: {}".format(stat, status[stat]))
     except KeyboardInterrupt:
         pass
-    print("File size: {}".format(count))
-    for stat in status.keys():
-        if status[stat]:
-            print("{}: {}".format(stat, status[stat]))
+    finally:
+        print("File size: {}".format(count))
+        for stat in status.keys():
+            if status[stat]:
+                print("{}: {}".format(stat, status[stat]))
