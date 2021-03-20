@@ -6,19 +6,19 @@ Find all possible solution in n*n chessboard
 from sys import argv
 
 
-def check(position, y, z, n):
+def check(position, i, j, n):
     """
-    Check if position[y, z] have any intersections
+    Check if position[i, j] have any intersections
     with any of the previous queens
     position: list of cordination of queens
-    [y, z]: position of the new queen
+    [i, j]: position of the new queen
     n: nbr of queens
     """
     # print(position)
     for pos in position:
         all = generat(pos, n)
-        if [y, z] in all:
-            # print("{},{} => {}".format(y,z,all))
+        if [i, j] in all:
+            # print("{},{} => {}".format(i,j,all))
             return 0
     return 1
 
@@ -56,12 +56,37 @@ def generat(pos, n):
     return (all)
 
 
+def alter(array, position, count, result, y, z, n):
+    """
+    """
+    for i in range(1, n):
+        for j in range(n):
+            if (check(position, i, j, n)):
+                array[i][j] = 1
+                count += 1
+                position.append([i, j])
+
+    # if count == n:
+    """
+    print("array:")
+    for i in array:
+        print(i, "\n")
+    """
+    # print("count={}".format(count))
+
+
 if __name__ == "__main__":
     """
     Find all possible locations of queens
     in a n*n board
     Return the queens cordinations
     """
+    if len(argv) < 1:
+        print("Usage: nqueens N\n")
+        exit(1)
+    if int(argv[1]) < 4:
+        print("N must be at least 4\n")
+        exit(1)
     n = int(argv[1])
 
     array = [[0 for i in range(n)] for i in range(n)]
@@ -76,23 +101,9 @@ if __name__ == "__main__":
         # print("positions: {}".format(position))
         for y in range(1, n):
             for z in range(n):
-                if (check(position, y, z, n)):
-                    array[y][z] = 1
-                    count += 1
-                    position.append([y, z])
-                    break
-                else:
-                    continue
-                break
+                alter(array, position, count, result, y, z, n)
 
-        if count == n:
-            for i in range(n):
-                for j in range(n):
-                    if array[i][j] == 1:
-                        result.append([i, j])
-            print(result)
-        # print("count={}".format(count))
+        print([[i, j] for i in range(n) for j in range(n) if array[i][j] == 1])
         array = [[0 for i in range(n)] for i in range(n)]
         position = []
         result = []
-        count = 0
