@@ -57,12 +57,7 @@ def generat(pos, n):
 
 
 def alter(array, position, count, result, y, z, n):
-    """
-    """
 
-            
-
-    # if count == n:
     """
     print("array:")
     for i in array:
