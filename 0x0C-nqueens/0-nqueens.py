@@ -59,12 +59,8 @@ def generat(pos, n):
 def alter(array, position, count, result, y, z, n):
     """
     """
-    for i in range(1, n):
-        for j in range(n):
-            if (check(position, i, j, n)):
-                array[i][j] = 1
-                count += 1
-                position.append([i, j])
+
+            
 
     # if count == n:
     """
@@ -99,11 +95,15 @@ if __name__ == "__main__":
         count = 1
 
         # print("positions: {}".format(position))
-        for y in range(1, n):
-            for z in range(n):
-                alter(array, position, count, result, y, z, n)
+        for i in range(1, n):
+            for j in range(n):
+                if (check(position, i, j, n)):
+                    array[i][j] = 1
+                    count += 1
+                    position.append([i, j])
 
-        print([[i, j] for i in range(n) for j in range(n) if array[i][j] == 1])
+        if count == n:
+            print([[i, j] for i in range(n) for j in range(n) if array[i][j] == 1])
         array = [[0 for i in range(n)] for i in range(n)]
         position = []
         result = []
