@@ -21,7 +21,7 @@ avl_t *array_to_avl(int *array, size_t start, size_t size, avl_t *parent)
 
 	mid = (start + size) / 2;
 	new = (avl_t *)malloc(sizeof(avl_t));
-	if (new)
+	if (new == NULL)
 		return NULL;
 	new->n = array[mid];
 	new->parent = parent;
