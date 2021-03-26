@@ -27,16 +27,20 @@ avl_t *array_to_avl(int *array, size_t start, size_t size, avl_t *parent)
 {
 	size_t mid;
 	avl_t *new;
+
 	if (start > size)
 		return NULL;
 
 	mid = (start + size) / 2;
 	new = malloc(sizeof(avl_t));
+	if (new == NULL)
+		return (NULL);
 	new->n = array[mid];
 	new->parent = parent;
 
-	new->right = array_to_avl(array, mid + 1, size, new);
 	if (mid != size)
+		new->right = array_to_avl(array, mid + 1, size, new);
+	if (mid != start)
 		new->left = array_to_avl(array, start, mid - 1, new);
 
 	return new;
