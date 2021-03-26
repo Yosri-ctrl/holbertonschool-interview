@@ -9,6 +9,8 @@
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
 	avl_t *new;
+	if (size <= 0 || array == NULL)
+		return (NULL);
 
 	new = array_to_avl(array, 0, size - 1, NULL);
 
