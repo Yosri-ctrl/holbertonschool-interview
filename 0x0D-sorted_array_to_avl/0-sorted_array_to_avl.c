@@ -2,7 +2,7 @@
 
 /**
  * sorted_array_to_avl - Convert array to avl tree
- * @arrat: array to Convert
+ * @array: array to Convert
  * @size: size of the array
  * Return: the head of the new linked list
  */
@@ -14,6 +14,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 
 	return (new);
 }
+
 /**
  * array_to_avl - Reccursive function for convertion
  * @array: array to convert 
@@ -24,21 +25,19 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
  */
 avl_t *array_to_avl(int *array, size_t start, size_t size, avl_t *parent)
 {
-	if (start > size)
-		return NULL;
 	size_t mid;
 	avl_t *new;
+	if (start > size)
+		return NULL;
 
 	mid = (start + size) / 2;
-	new = (avl_t *)malloc(sizeof(avl_t));
-	if (new == NULL)
-		return NULL;
+	new = malloc(sizeof(avl_t));
 	new->n = array[mid];
 	new->parent = parent;
 
+	new->right = array_to_avl(array, mid + 1, size, new);
 	if (mid != size)
 		new->left = array_to_avl(array, start, mid - 1, new);
-	new->right = array_to_avl(array, mid + 1, size, new);
 
 	return new;
 }
