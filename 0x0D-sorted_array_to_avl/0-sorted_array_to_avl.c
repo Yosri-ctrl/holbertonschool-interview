@@ -9,6 +9,7 @@
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
 	avl_t *new;
+
 	if (size <= 0 || array == NULL)
 		return (NULL);
 
@@ -19,7 +20,7 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 
 /**
  * array_to_avl - Reccursive function for convertion
- * @array: array to convert 
+ * @array: array to convert
  * @start: the first index of sub-array to treat
  * @size: the last index of arry to treat
  * @parent: the previous node
@@ -31,7 +32,7 @@ avl_t *array_to_avl(int *array, size_t start, size_t size, avl_t *parent)
 	avl_t *new;
 
 	if (start > size)
-		return NULL;
+		return (NULL);
 
 	mid = (start + size) / 2;
 	new = malloc(sizeof(avl_t));
@@ -39,11 +40,13 @@ avl_t *array_to_avl(int *array, size_t start, size_t size, avl_t *parent)
 		return (NULL);
 	new->n = array[mid];
 	new->parent = parent;
+	new->right = NULL;
+	new->left = NULL;
 
 	if (mid != size)
 		new->right = array_to_avl(array, mid + 1, size, new);
 	if (mid != start)
 		new->left = array_to_avl(array, start, mid - 1, new);
 
-	return new;
+	return (new);
 }
