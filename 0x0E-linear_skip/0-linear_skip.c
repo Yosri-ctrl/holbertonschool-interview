@@ -9,7 +9,8 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 {
 	skiplist_t *node = NULL, *prev = NULL, *next = NULL;
 
-	if (list || value == 0)
+	//printf("value = %d\n", value);
+	if (list == NULL || value == 0)
 		return (NULL);
 	node = list;
 	prev = list;
