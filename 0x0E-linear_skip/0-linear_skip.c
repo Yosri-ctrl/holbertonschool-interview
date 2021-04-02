@@ -7,10 +7,13 @@
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
-	skiplist_t *node = list, *prev = list, *next = list->express;
+	skiplist_t *node = NULL, *prev = NULL, *next = NULL;
 
-	if (list == NULL)
+	if (list || value == 0)
 		return (NULL);
+	node = list;
+	prev = list;
+	next = list->express;
 	while (next)
 	{
 		printf("Value checked at index [%ld] = [%d]\n", next->index, next->n);
