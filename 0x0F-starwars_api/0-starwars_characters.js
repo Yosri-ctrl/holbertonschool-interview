@@ -6,13 +6,14 @@ if (!process.argv[2]){
 }
 let id = process.argv[2];
 let url = `https://swapi-api.hbtn.io/api/films/${id}/`;
-request(url, function(err, res, body){
+request(url, async function(err, res, body){
 	let json = JSON.parse(body);
-	//console.log(json);
-	//let char_len = json["results"][i]["characters"].length
 	for (let char of json.characters) {
-		request(char, function(err, res, body){
-			console.log(JSON.parse(body).name);
+		const name = await new Promise((resolve, reject) => {
+			request(char, function(err, res, body){
+				resolve(JSON.parse(body).name);
+			});
 		});
+		console.log(name);
 	}
 })
