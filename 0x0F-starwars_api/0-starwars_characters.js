@@ -1,9 +1,9 @@
 #!/usr/bin/node
 
 let request = require('request');
-if (!process.argv[2]){
-	return;
-}
+//if (!process.argv[2]){
+//	throw new Error("");
+//}
 let id = process.argv[2];
 let url = `https://swapi-api.hbtn.io/api/films/${id}/`;
 request(url, async function(err, res, body){
