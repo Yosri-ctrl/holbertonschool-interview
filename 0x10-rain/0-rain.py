@@ -2,6 +2,7 @@
 """ Calculate the water area
 """
 
+
 def rain(list):
     """ Calculat the area occupied by water
     list: is the list to treat
