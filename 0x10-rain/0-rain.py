@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-
+""" Calculate the water area
+"""
 
 def rain(list):
-    """ Callculat the area occupied by water
+    """ Calculat the area occupied by water
     list: is the list to treat
     """
     count = 0
