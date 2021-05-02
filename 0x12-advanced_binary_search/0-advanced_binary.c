@@ -12,6 +12,8 @@ int advanced_binary(int *array, size_t size, int value)
 	int index;
 	size_t start = 0, end = size - 1;
 
+	if (array == NULL)
+		return (-1);
 	index = recursive(array, start, end, value);
 	return (index);
 }
