@@ -3,6 +3,11 @@
 #include <stdio.h>
 #include <stddef.h>
 
+/**
+ * swap - swap two elements
+ * @a: first element
+ * @b: second element
+ */
 void swap(int *a, int *b)
 {
 	int temp;
@@ -12,6 +17,13 @@ void swap(int *a, int *b)
 	*b = temp;
 }
 
+/**
+ * heap - build the heap out of the array
+ * @array: array to treat
+ * @size: array size
+ * @a: index in array
+ * @len: nbr of element in heap
+ */
 void heap(int *array, int size, int a, size_t len)
 {
 	int max = a;
@@ -32,6 +44,11 @@ void heap(int *array, int size, int a, size_t len)
 	}
 }
 
+/**
+ * heap_sort - sort an array with heap method
+ * @array: array to treat
+ * @size: array size
+ */
 void heap_sort(int *array, size_t size)
 {
 	int i;
