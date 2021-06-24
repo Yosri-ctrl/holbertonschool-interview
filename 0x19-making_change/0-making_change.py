@@ -8,13 +8,15 @@ def makeChange(coins, total):
     """
     if total <= 0:
         return -1
+    coins.sort()
+    coins.reverse()
     count = 0
-    for _ in range(len(coins)):
-        count += int(total / max(coins))
-        total -= max(coins) * count
-        pre = coins.pop(coins.index(max(coins)))
+    for coin in coins:
         if total <= 0:
             break
-    if total + pre != 0:
+        buff = total // coin
+        count += total // coin
+        total -= (total // coin) * coin
+    if total != 0:
         return -1
-    return (count)
+    return count
