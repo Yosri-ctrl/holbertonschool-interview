@@ -15,7 +15,7 @@ def isWinner(x, nums):
     """
     """
     score = {"Maria": 0, "Ben": 0}
-    primes = [0, 2]
+    primes = [0, 0, 2]
     last = primes[-1]
 
     if max(nums) > last:
