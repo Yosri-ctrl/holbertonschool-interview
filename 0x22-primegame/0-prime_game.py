@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-"""
+""" Prime Game
 """
 
 
 def is_prime(n):
-    """ Check if n is a prime number """
+    """ Prime Game
+    """
     for i in range(2, int(n ** 0.5) + 1):
         if not n % i:
             return False
@@ -12,7 +13,7 @@ def is_prime(n):
 
 
 def isWinner(x, nums):
-    """
+    """ Prime Game
     """
     score = {"Maria": 0, "Ben": 0}
     primes = [0, 0, 2]
